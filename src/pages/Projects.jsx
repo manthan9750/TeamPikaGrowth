@@ -1,115 +1,163 @@
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  Globe,
+  ShoppingCart,
+  Smartphone,
+  BarChart3,
+  Zap,
+  Layers,
+} from "lucide-react";
 
 /**
- * TEAM PIKA GROWTH - PROJECTS PAGE
- * --------------------------------
- * Purpose:
- * - show execution capability (not fake marketing claims)
- * - demonstrate system types built
- * - build trust through structured examples
+ * TEAM PIKA GROWTH - PROJECTS PAGE V2
+ * ------------------------------------
+ * Focus:
+ * - Realistic demo projects
+ * - System-based showcase (not fake case studies)
+ * - Trust building through clarity
  */
 
-export default function Projects() {
-  const projects = [
-    {
-      id: 1,
-      title: "Restaurant Business Website System",
-      type: "Website + Booking Flow",
-      description:
-        "A structured website system designed for restaurant discovery, menu display, and enquiry flow via WhatsApp.",
-      tech: ["React", "Tailwind", "WhatsApp Integration"]
-    },
-    {
-      id: 2,
-      title: "Local Service Booking System",
-      type: "Lead + Appointment System",
-      description:
-        "A service-based booking flow optimized for mobile users with direct inquiry conversion system.",
-      tech: ["React Router", "UI System", "Conversion Flow"]
-    },
-    {
-      id: 3,
-      title: "Small Business Digital Presence System",
-      type: "Brand + Website Setup",
-      description:
-        "Structured digital identity system for small businesses to establish online presence and generate leads.",
-      tech: ["Frontend System", "Brand UI", "Responsive Design"]
-    }
-  ];
+const projects = [
+  {
+    icon: Globe,
+    title: "Business Website System",
+    type: "Website Solution",
+    desc: "Modern responsive business website structure designed for lead generation and trust building.",
+  },
+  {
+    icon: ShoppingCart,
+    title: "Ecommerce Store Setup",
+    type: "Ecommerce Solution",
+    desc: "Full online store system with product catalog, checkout flow, and payment integration.",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile-First Landing Pages",
+    type: "Conversion System",
+    desc: "High-converting landing pages optimized for WhatsApp and lead capture campaigns.",
+  },
+  {
+    icon: BarChart3,
+    title: "SEO Growth System",
+    type: "Growth Engine",
+    desc: "Local SEO structure for ranking business websites on Google and Maps.",
+  },
+  {
+    icon: Zap,
+    title: "Automation Workflows",
+    type: "Business System",
+    desc: "WhatsApp + CRM automation flows for lead tracking and customer follow-ups.",
+  },
+  {
+    icon: Layers,
+    title: "Brand Identity System",
+    type: "Branding",
+    desc: "Complete visual identity systems including logo, colors, and brand consistency setup.",
+  },
+];
 
+export default function Projects() {
   return (
     <div className="w-full">
 
-      {/* ================= HERO ================= */}
-      <section className="max-w-5xl mx-auto px-4 py-16 text-center">
+      {/* =====================================================
+          HERO SECTION
+      ===================================================== */}
 
-        <h1 className="text-3xl md:text-4xl font-bold">
-          Execution Systems We've Designed
-        </h1>
+      <section className="section">
+        <div className="container-custom text-center">
 
-        <p className="mt-4 text-gray-500 dark:text-gray-400">
-          These are system types and implementations we specialize in — not fake case studies or inflated metrics.
-        </p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="heading-xl mb-6"
+          >
+            Our Work & Systems
+          </motion.h1>
 
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ delay: 0.1 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="body-lg max-w-3xl mx-auto"
+          >
+            We don’t show fake success stories. We show real systems we build
+            for businesses to grow digitally.
+          </motion.p>
+
+        </div>
       </section>
 
-      {/* ================= PROJECT GRID ================= */}
-      <section className="max-w-6xl mx-auto px-4 pb-16 grid md:grid-cols-2 gap-6">
+      {/* =====================================================
+          PROJECT GRID
+      ===================================================== */}
 
-        {projects.map((project) => (
-          <div
-            key={project.id}
-            className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 hover:shadow-lg transition"
-          >
+      <section className="section pt-0">
+        <div className="container-custom">
 
-            <h3 className="text-lg font-semibold">
-              {project.title}
-            </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <p className="text-sm text-primary mt-1">
-              {project.type}
-            </p>
+            {projects.map((project, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05 }}
+                viewport={{ once: true }}
+                className="glass-card p-6 hover:scale-[1.02] transition-all"
+              >
 
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-3 leading-relaxed">
-              {project.description}
-            </p>
+                <project.icon className="text-violet-500 mb-4" />
 
-            {/* TECH STACK */}
-            <div className="flex flex-wrap gap-2 mt-4">
-              {project.tech.map((t, index) => (
-                <span
-                  key={index}
-                  className="text-xs px-2 py-1 rounded bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
+                <h3 className="heading-md mb-1">
+                  {project.title}
+                </h3>
+
+                <p className="text-violet-400 text-sm mb-3">
+                  {project.type}
+                </p>
+
+                <p className="text-slate-400 text-sm">
+                  {project.desc}
+                </p>
+
+              </motion.div>
+            ))}
 
           </div>
-        ))}
 
+        </div>
       </section>
 
-      {/* ================= CTA ================= */}
-      <section className="max-w-4xl mx-auto px-4 py-16 text-center border-t border-gray-200 dark:border-gray-800">
+      {/* =====================================================
+          CTA SECTION
+      ===================================================== */}
 
-        <h2 className="text-2xl font-bold">
-          Want a Similar System for Your Business?
-        </h2>
+      <section className="section">
+        <div className="container-custom">
 
-        <p className="text-gray-500 dark:text-gray-400 mt-2">
-          Let’s build your business system via WhatsApp.
-        </p>
+          <div className="glass-card p-10 text-center">
 
-        <a
-          href="https://wa.me/910000000000"
-          target="_blank"
-          className="inline-block mt-6 bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-medium"
-        >
-          Contact Now
-        </a>
+            <h2 className="heading-xl mb-4">
+              Want a System Like This?
+            </h2>
 
+            <p className="body-lg mb-6">
+              Let’s build a custom digital system for your business.
+            </p>
+
+            <a
+              href="https://wa.me/919999999999"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary"
+            >
+              Book Free Consultation
+            </a>
+
+          </div>
+
+        </div>
       </section>
 
     </div>
