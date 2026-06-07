@@ -1,105 +1,191 @@
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  Users,
+  Share2,
+  HandCoins,
+  MessageCircle,
+  ArrowRight,
+  CheckCircle,
+} from "lucide-react";
 
 /**
- * TEAM PIKA GROWTH - GROWTH PARTNER PAGE
- * --------------------------------------
- * Purpose:
- * - enable offline referral growth
- * - incentivize word-of-mouth sharing
- * - convert clients into promoters
+ * TEAM PIKA GROWTH - REFERRAL / GROWTH PARTNER PAGE V2
+ * -----------------------------------------------------
+ * Focus:
+ * - WhatsApp-first referral system
+ * - Simple 3-step flow
+ * - Trust + clarity
+ * - Conversion optimization
  */
+
+const steps = [
+  {
+    icon: Share2,
+    title: "Refer a Business",
+    desc: "Share our service with any business owner who needs a website, branding, or digital growth.",
+  },
+  {
+    icon: MessageCircle,
+    title: "We Contact Them",
+    desc: "Our team directly reaches out and explains the solution in detail.",
+  },
+  {
+    icon: HandCoins,
+    title: "You Earn Reward",
+    desc: "Once the deal is completed, you receive your referral reward instantly.",
+  },
+];
+
+const benefits = [
+  "No investment required",
+  "Works via WhatsApp only",
+  "No technical skills needed",
+  "Unlimited referrals allowed",
+  "Reward per successful client",
+  "Existing clients get 30% discount on referrals",
+];
 
 export default function GrowthPartner() {
   return (
     <div className="w-full">
 
-      {/* ================= HERO ================= */}
-      <section className="max-w-5xl mx-auto px-4 py-16 text-center">
+      {/* =====================================================
+          HERO SECTION
+      ===================================================== */}
 
-        <h1 className="text-3xl md:text-4xl font-bold">
-          Grow With Us. Earn by Referring Businesses.
-        </h1>
+      <section className="section">
+        <div className="container-custom text-center">
 
-        <p className="mt-4 text-gray-500 dark:text-gray-400">
-          Our growth partner system helps clients and individuals refer businesses
-          and earn rewards — fully managed via WhatsApp.
-        </p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="heading-xl mb-6"
+          >
+            Referral Rewards Program
+          </motion.h1>
 
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ delay: 0.1 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="body-lg max-w-3xl mx-auto"
+          >
+            Help businesses grow and earn rewards for every successful client
+            you refer to TEAM PIKA GROWTH.
+          </motion.p>
+
+        </div>
       </section>
 
-      {/* ================= EXPLANATION ================= */}
-      <section className="max-w-4xl mx-auto px-4 py-10 space-y-6 text-gray-600 dark:text-gray-300">
+      {/* =====================================================
+          STEPS
+      ===================================================== */}
 
-        <div>
-          <h2 className="font-semibold text-lg mb-2">
-            How It Works
-          </h2>
+      <section className="section pt-0">
+        <div className="container-custom">
 
-          <ul className="space-y-2 text-sm">
-            <li>1. You refer a business via WhatsApp</li>
-            <li>2. We contact and onboard the client</li>
-            <li>3. Deal is successfully closed</li>
-            <li>4. You receive your referral reward</li>
-          </ul>
+          <div className="grid md:grid-cols-3 gap-8">
+
+            {steps.map((step, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05 }}
+                viewport={{ once: true }}
+                className="glass-card p-6 text-center"
+              >
+
+                <step.icon className="text-violet-500 mx-auto mb-4" />
+
+                <h3 className="heading-md mb-2">
+                  {step.title}
+                </h3>
+
+                <p className="text-slate-400 text-sm">
+                  {step.desc}
+                </p>
+
+              </motion.div>
+            ))}
+
+          </div>
+
         </div>
-
-        <div>
-          <h2 className="font-semibold text-lg mb-2">
-            Who Can Become a Partner?
-          </h2>
-
-          <ul className="space-y-2 text-sm">
-            <li>• Existing clients</li>
-            <li>• Business owners</li>
-            <li>• Freelancers</li>
-            <li>• Students & creators</li>
-            <li>• Anyone with business connections</li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 className="font-semibold text-lg mb-2">
-            Reward System
-          </h2>
-
-          <p className="text-sm leading-relaxed">
-            Referral rewards are based on project value and are shared after successful onboarding.
-            Clients who refer others may also receive discounts on future services.
-          </p>
-        </div>
-
-        <div>
-          <h2 className="font-semibold text-lg mb-2">
-            Client Benefit
-          </h2>
-
-          <p className="text-sm leading-relaxed">
-            Existing clients can get up to 30% discount when they successfully refer new businesses.
-            This creates a win-win growth loop.
-          </p>
-        </div>
-
       </section>
 
-      {/* ================= CTA ================= */}
-      <section className="max-w-4xl mx-auto px-4 py-16 text-center border-t border-gray-200 dark:border-gray-800">
+      {/* =====================================================
+          BENEFITS
+      ===================================================== */}
 
-        <h2 className="text-2xl font-bold">
-          Want to Become a Growth Partner?
-        </h2>
+      <section className="section">
+        <div className="container-custom">
 
-        <p className="text-gray-500 dark:text-gray-400 mt-2">
-          Start referring businesses directly via WhatsApp.
-        </p>
+          <div className="glass-card p-10">
 
-        <a
-          href="https://wa.me/910000000000"
-          target="_blank"
-          className="inline-block mt-6 bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-medium"
-        >
-          Join on WhatsApp
-        </a>
+            <h2 className="heading-xl mb-8 text-center">
+              Why Join The Program?
+            </h2>
 
+            <div className="grid sm:grid-cols-2 gap-4">
+
+              {benefits.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3"
+                >
+
+                  <CheckCircle className="text-green-500" />
+
+                  <span className="text-slate-300">
+                    {item}
+                  </span>
+
+                </div>
+              ))}
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* =====================================================
+          CTA SECTION
+      ===================================================== */}
+
+      <section className="section">
+        <div className="container-custom">
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="glass-card p-10 text-center"
+          >
+
+            <h2 className="heading-xl mb-4">
+              Start Referring Today
+            </h2>
+
+            <p className="body-lg mb-6">
+              Talk directly with our team and start earning from your network.
+            </p>
+
+            <a
+              href="https://wa.me/919999999999"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary"
+            >
+              Join via WhatsApp
+              <ArrowRight size={18} className="ml-2" />
+            </a>
+
+          </motion.div>
+
+        </div>
       </section>
 
     </div>
