@@ -1,120 +1,295 @@
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import ServiceCard from "../components/ServiceCard";
+import {
+  ArrowRight,
+  Globe,
+  ShoppingCart,
+  Sparkles,
+  BarChart3,
+  Zap,
+  Megaphone,
+} from "lucide-react";
 
 /**
- * TEAM PIKA GROWTH - HOME PAGE
- * ----------------------------
- * Purpose:
- * - primary landing page
- * - WhatsApp lead conversion engine
- * - trust + services + CTA flow
+ * TEAM PIKA GROWTH - HOME PAGE V2
+ * --------------------------------
+ * Focus:
+ * - Conversion-first design
+ * - SaaS + digital agency hybrid feel
+ * - Scroll-based motion system
  */
+
+const services = [
+  {
+    icon: Globe,
+    title: "Website Solutions",
+    desc: "High-performance business websites designed to convert visitors into customers.",
+    link: "/services",
+  },
+  {
+    icon: ShoppingCart,
+    title: "Ecommerce Solutions",
+    desc: "Scalable online stores with smooth checkout and optimized product flow.",
+    link: "/services",
+  },
+  {
+    icon: Sparkles,
+    title: "Branding",
+    desc: "Modern brand identity systems that make your business stand out.",
+    link: "/services",
+  },
+  {
+    icon: BarChart3,
+    title: "Growth & SEO",
+    desc: "Search + local optimization to bring consistent organic leads.",
+    link: "/services",
+  },
+  {
+    icon: Zap,
+    title: "Automation Systems",
+    desc: "WhatsApp, CRM, and workflow automation to save time and increase sales.",
+    link: "/services",
+  },
+  {
+    icon: Megaphone,
+    title: "Marketing Systems",
+    desc: "Lead generation funnels and campaign systems for scalable growth.",
+    link: "/services",
+  },
+];
+
+const industries = [
+  "Restaurants",
+  "Cafes",
+  "Real Estate",
+  "Clinics",
+  "Gyms",
+  "Startups",
+  "Creators",
+  "Coaches",
+  "D2C Brands",
+  "Retail Shops",
+  "Agencies",
+];
 
 export default function Home() {
   return (
     <div className="w-full">
 
-      {/* ================= HERO SECTION ================= */}
-      <section className="max-w-6xl mx-auto px-4 py-20 text-center">
+      {/* =====================================================
+          HERO SECTION
+      ===================================================== */}
 
-        <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-          We Build Systems That Help Businesses
-          <span className="text-primary"> Grow Faster</span>
-        </h1>
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
 
-        <p className="mt-5 text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
-          Websites, ecommerce, automation, branding and digital systems —
-          designed for real business results, not just design showcase.
-        </p>
-
-        {/* PRIMARY CTA */}
-        <div className="mt-8 flex flex-col md:flex-row gap-4 justify-center">
-
-          <a
-            href="https://wa.me/910000000000"
-            target="_blank"
-            className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition"
-          >
-            Start on WhatsApp
-          </a>
-
-          <Link
-            to="/services"
-            className="border border-gray-300 dark:border-gray-700 px-6 py-3 rounded-lg"
-          >
-            Explore Services
-          </Link>
-
+        {/* Background Glow */}
+        <div className="absolute inset-0">
+          <div className="hero-glow-purple top-[-120px] left-[-120px]" />
+          <div className="hero-glow-cyan bottom-[-120px] right-[-120px]" />
         </div>
 
-        <p className="text-xs text-gray-400 mt-4">
-          Fast response via WhatsApp • No forms • Direct communication
-        </p>
-      </section>
+        <div className="container-custom relative z-10">
 
-      {/* ================= SERVICES PREVIEW ================= */}
-      <section className="max-w-6xl mx-auto px-4 py-10">
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
 
-        <h2 className="text-2xl font-semibold mb-6 text-center">
-          What We Build
-        </h2>
+            {/* LEFT */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
 
-        <div className="grid md:grid-cols-3 gap-6">
+              <h1 className="display-lg mb-6">
+                We Build Digital Systems That
+                <span className="text-violet-500"> Grow Businesses</span>
+              </h1>
 
-          <ServiceCard
-            title="Business Websites"
-            description="Fast, modern and conversion-focused websites for local businesses."
-            icon="🌐"
-          />
+              <p className="body-lg mb-8">
+                TEAM PIKA GROWTH helps local businesses, startups, and brands
+                build websites, automation systems, branding, and marketing
+                engines that actually generate growth.
+              </p>
 
-          <ServiceCard
-            title="Ecommerce Systems"
-            description="Online stores designed to convert visitors into paying customers."
-            icon="🛒"
-          />
+              {/* CTA */}
+              <div className="flex flex-col sm:flex-row gap-4">
 
-          <ServiceCard
-            title="Automation & Systems"
-            description="Business automation to reduce manual work and increase efficiency."
-            icon="⚙️"
-          />
+                <a
+                  href="https://wa.me/919999999999"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-primary"
+                >
+                  Book Free Growth Consultation
+                  <ArrowRight size={18} className="ml-2" />
+                </a>
+
+                <Link
+                  to="/services"
+                  className="btn-secondary"
+                >
+                  Explore Services
+                </Link>
+
+              </div>
+
+              <p className="text-sm text-slate-500 mt-5">
+                Free consultation via WhatsApp, Call, or Google Meet
+              </p>
+
+            </motion.div>
+
+            {/* RIGHT VISUAL */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7 }}
+              className="relative"
+            >
+
+              <div className="glass-card p-8 float-soft">
+
+                <h3 className="heading-md mb-6">
+                  Your Growth Stack
+                </h3>
+
+                <div className="space-y-4">
+
+                  {[
+                    "Website",
+                    "Branding",
+                    "Automation",
+                    "Marketing",
+                    "SEO",
+                  ].map((item, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10"
+                    >
+                      <span>{item}</span>
+                      <ArrowRight size={16} />
+                    </div>
+                  ))}
+
+                </div>
+
+              </div>
+
+            </motion.div>
+
+          </div>
 
         </div>
       </section>
 
-      {/* ================= TRUST STRIP ================= */}
-      <section className="max-w-4xl mx-auto px-4 py-16 text-center">
+      {/* =====================================================
+          SERVICES
+      ===================================================== */}
 
-        <h3 className="text-xl font-semibold">
-          Built for Real Businesses, Not Just Websites
-        </h3>
+      <section className="section">
+        <div className="container-custom">
 
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-3">
-          We focus on execution systems that help you get more calls, more leads,
-          and more customers — not just online presence.
-        </p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="heading-xl mb-12"
+          >
+            What We Build
+          </motion.h2>
 
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {services.map((service, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05 }}
+                viewport={{ once: true }}
+                className="glass-card p-6 hover:scale-[1.02] transition-all"
+              >
+
+                <service.icon className="text-violet-500 mb-4" />
+
+                <h3 className="heading-md mb-2">
+                  {service.title}
+                </h3>
+
+                <p className="body-md mb-4">
+                  {service.desc}
+                </p>
+
+                <Link
+                  to={service.link}
+                  className="text-violet-500 flex items-center gap-1"
+                >
+                  Learn More <ArrowRight size={16} />
+                </Link>
+
+              </motion.div>
+            ))}
+
+          </div>
+
+        </div>
       </section>
 
-      {/* ================= FINAL CTA ================= */}
-      <section className="max-w-6xl mx-auto px-4 py-16 text-center border-t border-gray-200 dark:border-gray-800">
+      {/* =====================================================
+          INDUSTRIES
+      ===================================================== */}
 
-        <h2 className="text-2xl font-bold">
-          Ready to Grow Your Business?
-        </h2>
+      <section className="section">
+        <div className="container-custom">
 
-        <p className="text-gray-500 dark:text-gray-400 mt-2">
-          Talk directly with our team on WhatsApp.
-        </p>
+          <h2 className="heading-xl mb-10">
+            Industries We Work With
+          </h2>
 
-        <a
-          href="https://wa.me/910000000000"
-          target="_blank"
-          className="inline-block mt-6 bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-medium"
-        >
-          Contact on WhatsApp
-        </a>
+          <div className="flex flex-wrap gap-3">
 
+            {industries.map((item, i) => (
+              <span
+                key={i}
+                className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm"
+              >
+                {item}
+              </span>
+            ))}
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* =====================================================
+          FINAL CTA
+      ===================================================== */}
+
+      <section className="section">
+        <div className="container-custom">
+
+          <div className="glass-card p-10 text-center">
+
+            <h2 className="heading-xl mb-4">
+              Ready To Grow Your Business?
+            </h2>
+
+            <p className="body-lg mb-8">
+              Book a free consultation and let’s build your digital growth system.
+            </p>
+
+            <a
+              href="https://wa.me/919999999999"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary"
+            >
+              Book Free Growth Consultation
+            </a>
+
+          </div>
+
+        </div>
       </section>
 
     </div>
