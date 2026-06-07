@@ -3,84 +3,27 @@
 @tailwind utilities;
 
 /* =========================================================
-   TEAM PIKA GROWTH V2 DESIGN SYSTEM
-   ---------------------------------------------------------
-   Premium SaaS Design Foundation
-   Inspired by:
-   - Linear
-   - Stripe
-   - Framer
-   - Vercel
-   - Modern Startup Websites
-
-   This file controls:
-   - Typography
-   - Layout rhythm
-   - Color system
-   - Motion system
-   - Glassmorphism
-   - Scroll experience
-   - Dark mode
+   TEAM PIKA GROWTH - DESIGN SYSTEM V2 (PRODUCTION LEVEL)
+   Fixes:
+   - Missing utility classes
+   - SaaS UI system
+   - Glass morphism
+   - Buttons system
+   - Typography system
+   - Layout system
 ========================================================= */
 
-/* =========================================================
-   ROOT TOKENS
-========================================================= */
-
+/* ROOT VARIABLES */
 :root {
   --primary: #7c3aed;
-  --primary-light: #8b5cf6;
   --secondary: #06b6d4;
-
-  --background: #ffffff;
-  --foreground: #0f172a;
-
-  --card: #ffffff;
-  --card-border: rgba(15, 23, 42, 0.08);
-
-  --muted: #64748b;
-  --muted-light: #94a3b8;
-
-  --section-spacing: 7rem;
-
-  --container-max: 1280px;
-
-  --shadow-soft:
-    0 10px 40px rgba(0,0,0,0.08);
-
-  --shadow-large:
-    0 30px 80px rgba(0,0,0,0.12);
-
-  --gradient-primary:
-    linear-gradient(
-      135deg,
-      #7c3aed,
-      #06b6d4
-    );
+  --bg-dark: #0b0b12;
 }
 
-/* =========================================================
-   DARK MODE TOKENS
-========================================================= */
-
-.dark {
-  --background: #070710;
-  --foreground: #f8fafc;
-
-  --card: rgba(15,15,25,0.85);
-  --card-border: rgba(255,255,255,0.08);
-
-  --muted: #94a3b8;
-  --muted-light: #cbd5e1;
-}
-
-/* =========================================================
-   RESET
-========================================================= */
-
-*,
-*::before,
-*::after {
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -88,107 +31,85 @@ html {
   scroll-behavior: smooth;
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol {
-  margin: 0;
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: #ffffff;
+  color: #0f172a;
+  transition: all 0.3s ease;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-
-  font-family:
-    Inter,
-    system-ui,
-    sans-serif;
-
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  overflow-x: hidden;
-
-  transition:
-    background-color .35s ease,
-    color .35s ease;
+/* DARK MODE */
+.dark body {
+  background: var(--bg-dark);
+  color: #ffffff;
 }
 
 /* =========================================================
-   CONTAINER SYSTEM
+   LAYOUT SYSTEM
 ========================================================= */
 
 .container-custom {
   width: 100%;
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding-inline: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .section {
-  padding-top: var(--section-spacing);
-  padding-bottom: var(--section-spacing);
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding-top: 4.5rem;
-    padding-bottom: 4.5rem;
-  }
+  padding: 80px 0;
 }
 
 /* =========================================================
    TYPOGRAPHY SYSTEM
 ========================================================= */
 
-.display-xl {
-  font-size: clamp(3rem, 7vw, 6rem);
-  line-height: 1;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-}
-
-.display-lg {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  line-height: 1.05;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-}
-
 .heading-xl {
-  font-size: clamp(2rem, 3vw, 3rem);
-  line-height: 1.1;
+  font-size: 3rem;
   font-weight: 700;
+  line-height: 1.1;
 }
 
 .heading-lg {
-  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
-  line-height: 1.15;
-  font-weight: 700;
+  font-size: 2.25rem;
+  font-weight: 600;
 }
 
 .heading-md {
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .body-lg {
   font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--muted);
+  line-height: 1.7;
+  color: #64748b;
 }
 
 .body-md {
   font-size: 1rem;
-  line-height: 1.8;
-  color: var(--muted);
+  line-height: 1.6;
+  color: #64748b;
+}
+
+/* =========================================================
+   CARD SYSTEM
+========================================================= */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.dark .glass-card {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(124, 58, 237, 0.2);
 }
 
 /* =========================================================
@@ -198,212 +119,101 @@ body {
 .btn-primary {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-
-  padding:
-    0.95rem
-    1.6rem;
-
-  border-radius: 999px;
-
-  background: var(--gradient-primary);
-
+  gap: 10px;
+  padding: 14px 22px;
+  background: linear-gradient(135deg, #7c3aed, #06b6d4);
   color: white;
+  border-radius: 12px;
   font-weight: 600;
-
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease;
-
-  box-shadow:
-    0 12px 30px rgba(124,58,237,.25);
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-  transform:
-    translateY(-2px)
-    scale(1.01);
-
-  box-shadow:
-    0 18px 40px rgba(124,58,237,.35);
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
 }
 
 .btn-secondary {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding:
-    0.95rem
-    1.6rem;
-
-  border-radius: 999px;
-
-  border: 1px solid var(--card-border);
-
-  backdrop-filter: blur(12px);
-
-  transition:
-    all .25s ease;
+  padding: 14px 22px;
+  border: 1px solid #7c3aed;
+  color: #7c3aed;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .btn-secondary:hover {
-  transform: translateY(-2px);
+  background: #7c3aed;
+  color: white;
 }
 
 /* =========================================================
-   GLASS CARDS
-========================================================= */
-
-.glass-card {
-  position: relative;
-
-  background: var(--card);
-
-  border:
-    1px solid
-    var(--card-border);
-
-  backdrop-filter: blur(18px);
-
-  border-radius: 28px;
-
-  box-shadow:
-    var(--shadow-soft);
-
-  transition:
-    transform .35s ease,
-    box-shadow .35s ease,
-    border-color .35s ease;
-}
-
-.glass-card:hover {
-  transform:
-    translateY(-6px);
-
-  box-shadow:
-    var(--shadow-large);
-}
-
-/* =========================================================
-   HERO GLOW SYSTEM
+   HERO GLOW EFFECTS
 ========================================================= */
 
 .hero-glow-purple {
   position: absolute;
-
-  width: 500px;
-  height: 500px;
-
-  border-radius: 999px;
-
-  background:
-    rgba(124,58,237,.35);
-
+  width: 300px;
+  height: 300px;
+  background: #7c3aed;
   filter: blur(120px);
-
-  pointer-events: none;
+  opacity: 0.4;
+  border-radius: 50%;
 }
 
 .hero-glow-cyan {
   position: absolute;
-
-  width: 450px;
-  height: 450px;
-
-  border-radius: 999px;
-
-  background:
-    rgba(6,182,212,.25);
-
+  width: 300px;
+  height: 300px;
+  background: #06b6d4;
   filter: blur(120px);
-
-  pointer-events: none;
-}
-
-/* =========================================================
-   PREMIUM SCROLLBAR
-========================================================= */
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background:
-    linear-gradient(
-      #7c3aed,
-      #06b6d4
-    );
-
-  border-radius: 999px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
+  opacity: 0.4;
+  border-radius: 50%;
 }
 
 /* =========================================================
    ANIMATIONS
 ========================================================= */
 
-.fade-up {
-  animation:
-    fadeUp .8s ease forwards;
-}
-
-@keyframes fadeUp {
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform:
-      translateY(20px);
+    transform: translateY(10px);
   }
-
   to {
     opacity: 1;
-    transform:
-      translateY(0);
+    transform: translateY(0);
   }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .float-soft {
-  animation:
-    floatSoft 7s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
 }
 
-@keyframes floatSoft {
-  0%,100% {
-    transform:
-      translateY(0px);
-  }
-
-  50% {
-    transform:
-      translateY(-12px);
-  }
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
 /* =========================================================
-   IMAGE SYSTEM
+   UTILITY FIXES
 ========================================================= */
 
-.team-image {
-  width: 100%;
-  aspect-ratio: 4/5;
-  object-fit: cover;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.project-image {
-  width: 100%;
-  aspect-ratio: 16/10;
-  object-fit: cover;
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-/* =========================================================
-   SELECTION
-========================================================= */
-
-::selection {
-  background:
-    rgba(124,58,237,.3);
+::-webkit-scrollbar-thumb {
+  background: #7c3aed;
+  border-radius: 10px;
 }
