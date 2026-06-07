@@ -1,18 +1,15 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import path from "path";
 
-export default defineConfig({
-  plugins: [react()],
-});
 /**
  * TEAM PIKA GROWTH - VITE ARCHITECTURE CONFIG
  * -------------------------------------------
- * This config controls:
- * - Module resolution (clean imports)
- * - Production build optimization
- * - Code splitting strategy
+ * Production-grade Vite setup for:
+ * - React SaaS architecture
  * - Vercel deployment compatibility
- * - Scalable SaaS folder structure
+ * - Scalable folder aliasing
+ * - Optimized build performance
  */
 
 export default defineConfig({
