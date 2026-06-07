@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   TEAM PIKA GROWTH - GLOBAL UI SYSTEM
+   This file defines:
+   - base typography behavior
+   - dark/light mode system
+   - animation utilities
+   - accessibility improvements
+   - UI consistency layer
+========================================================= */
+
+/* ROOT VARIABLES */
+:root {
+  --primary: #7c3aed;
+  --secondary: #06b6d4;
+}
+
+/* BASE RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* HTML BEHAVIOR */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+/* BODY BASE SYSTEM */
+body {
+  font-family: Inter, system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* LIGHT MODE */
+body {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+/* DARK MODE */
+.dark body {
+  background-color: #0b0b12;
+  color: #ffffff;
+}
+
+/* LINKS */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+/* BUTTON FOCUS (ACCESSIBILITY) */
+button:focus,
+a:focus {
+  outline: 2px solid #7c3aed;
+  outline-offset: 2px;
+}
+
+/* INPUT BASE */
+input, textarea {
+  font-family: inherit;
+}
+
+/* SCROLLBAR (MODERN SAAS FEEL) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7c3aed;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ANIMATION SYSTEM */
+.fade-in {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* SOFT FLOAT EFFECT */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* GLASS EFFECT (SAAS UI TREND) */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
