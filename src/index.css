@@ -3,124 +3,407 @@
 @tailwind utilities;
 
 /* =========================================================
-   TEAM PIKA GROWTH - GLOBAL UI SYSTEM
-   This file defines:
-   - base typography behavior
-   - dark/light mode system
-   - animation utilities
-   - accessibility improvements
-   - UI consistency layer
+   TEAM PIKA GROWTH V2 DESIGN SYSTEM
+   ---------------------------------------------------------
+   Premium SaaS Design Foundation
+   Inspired by:
+   - Linear
+   - Stripe
+   - Framer
+   - Vercel
+   - Modern Startup Websites
+
+   This file controls:
+   - Typography
+   - Layout rhythm
+   - Color system
+   - Motion system
+   - Glassmorphism
+   - Scroll experience
+   - Dark mode
 ========================================================= */
 
-/* ROOT VARIABLES */
+/* =========================================================
+   ROOT TOKENS
+========================================================= */
+
 :root {
   --primary: #7c3aed;
+  --primary-light: #8b5cf6;
   --secondary: #06b6d4;
+
+  --background: #ffffff;
+  --foreground: #0f172a;
+
+  --card: #ffffff;
+  --card-border: rgba(15, 23, 42, 0.08);
+
+  --muted: #64748b;
+  --muted-light: #94a3b8;
+
+  --section-spacing: 7rem;
+
+  --container-max: 1280px;
+
+  --shadow-soft:
+    0 10px 40px rgba(0,0,0,0.08);
+
+  --shadow-large:
+    0 30px 80px rgba(0,0,0,0.12);
+
+  --gradient-primary:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #06b6d4
+    );
 }
 
-/* BASE RESET */
-* {
-  margin: 0;
-  padding: 0;
+/* =========================================================
+   DARK MODE TOKENS
+========================================================= */
+
+.dark {
+  --background: #070710;
+  --foreground: #f8fafc;
+
+  --card: rgba(15,15,25,0.85);
+  --card-border: rgba(255,255,255,0.08);
+
+  --muted: #94a3b8;
+  --muted-light: #cbd5e1;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-/* HTML BEHAVIOR */
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
 }
 
-/* BODY BASE SYSTEM */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin: 0;
+}
+
 body {
-  font-family: Inter, system-ui, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background: var(--background);
+  color: var(--foreground);
+
+  font-family:
+    Inter,
+    system-ui,
+    sans-serif;
+
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden;
+
+  transition:
+    background-color .35s ease,
+    color .35s ease;
 }
 
-/* LIGHT MODE */
-body {
-  background-color: #ffffff;
-  color: #0f172a;
+/* =========================================================
+   CONTAINER SYSTEM
+========================================================= */
+
+.container-custom {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
 }
 
-/* DARK MODE */
-.dark body {
-  background-color: #0b0b12;
-  color: #ffffff;
+.section {
+  padding-top: var(--section-spacing);
+  padding-bottom: var(--section-spacing);
 }
 
-/* LINKS */
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: all 0.2s ease;
+@media (max-width: 768px) {
+  .section {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
 }
 
-a:hover {
-  opacity: 0.85;
+/* =========================================================
+   TYPOGRAPHY SYSTEM
+========================================================= */
+
+.display-xl {
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.04em;
 }
 
-/* BUTTON FOCUS (ACCESSIBILITY) */
-button:focus,
-a:focus {
-  outline: 2px solid #7c3aed;
-  outline-offset: 2px;
+.display-lg {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
-/* INPUT BASE */
-input, textarea {
-  font-family: inherit;
+.heading-xl {
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.1;
+  font-weight: 700;
 }
 
-/* SCROLLBAR (MODERN SAAS FEEL) */
+.heading-lg {
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.heading-md {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.body-lg {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.body-md {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* =========================================================
+   BUTTON SYSTEM
+========================================================= */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    0.95rem
+    1.6rem;
+
+  border-radius: 999px;
+
+  background: var(--gradient-primary);
+
+  color: white;
+  font-weight: 600;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+
+  box-shadow:
+    0 12px 30px rgba(124,58,237,.25);
+}
+
+.btn-primary:hover {
+  transform:
+    translateY(-2px)
+    scale(1.01);
+
+  box-shadow:
+    0 18px 40px rgba(124,58,237,.35);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    0.95rem
+    1.6rem;
+
+  border-radius: 999px;
+
+  border: 1px solid var(--card-border);
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    all .25s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   GLASS CARDS
+========================================================= */
+
+.glass-card {
+  position: relative;
+
+  background: var(--card);
+
+  border:
+    1px solid
+    var(--card-border);
+
+  backdrop-filter: blur(18px);
+
+  border-radius: 28px;
+
+  box-shadow:
+    var(--shadow-soft);
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
+}
+
+.glass-card:hover {
+  transform:
+    translateY(-6px);
+
+  box-shadow:
+    var(--shadow-large);
+}
+
+/* =========================================================
+   HERO GLOW SYSTEM
+========================================================= */
+
+.hero-glow-purple {
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(124,58,237,.35);
+
+  filter: blur(120px);
+
+  pointer-events: none;
+}
+
+.hero-glow-cyan {
+  position: absolute;
+
+  width: 450px;
+  height: 450px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(6,182,212,.25);
+
+  filter: blur(120px);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   PREMIUM SCROLLBAR
+========================================================= */
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #7c3aed;
-  border-radius: 10px;
+  background:
+    linear-gradient(
+      #7c3aed,
+      #06b6d4
+    );
+
+  border-radius: 999px;
 }
 
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 
-/* ANIMATION SYSTEM */
-.fade-in {
-  animation: fadeIn 0.4s ease-in-out;
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+.fade-up {
+  animation:
+    fadeUp .8s ease forwards;
 }
 
-@keyframes fadeIn {
+@keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform:
+      translateY(20px);
   }
+
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform:
+      translateY(0);
   }
 }
 
-/* SOFT FLOAT EFFECT */
-.float {
-  animation: float 6s ease-in-out infinite;
+.float-soft {
+  animation:
+    floatSoft 7s ease-in-out infinite;
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
+@keyframes floatSoft {
+  0%,100% {
+    transform:
+      translateY(0px);
   }
+
   50% {
-    transform: translateY(-10px);
+    transform:
+      translateY(-12px);
   }
 }
 
-/* GLASS EFFECT (SAAS UI TREND) */
-.glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* =========================================================
+   IMAGE SYSTEM
+========================================================= */
+
+.team-image {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+}
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+}
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+  background:
+    rgba(124,58,237,.3);
 }
