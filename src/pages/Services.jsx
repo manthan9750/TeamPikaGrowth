@@ -1,110 +1,222 @@
-import ServiceCard from "../components/ServiceCard";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import {
+  Globe,
+  ShoppingCart,
+  Sparkles,
+  BarChart3,
+  Zap,
+  Megaphone,
+  ArrowRight,
+} from "lucide-react";
 
 /**
- * TEAM PIKA GROWTH - SERVICES PAGE
- * --------------------------------
+ * TEAM PIKA GROWTH - SERVICES PAGE V2
+ * -----------------------------------
  * Purpose:
- * - clearly explain offerings
- * - reduce confusion for non-technical users
- * - drive WhatsApp conversion
+ * - Structured service system
+ * - Conversion-oriented layout
+ * - Clear business value explanation
  */
+
+const services = [
+  {
+    icon: Globe,
+    title: "Website Solutions",
+    description:
+      "High-performance business websites designed to convert visitors into paying customers. Optimized for speed, SEO, and mobile-first experience.",
+    features: [
+      "Business websites",
+      "Landing pages",
+      "Portfolio websites",
+      "Custom UI/UX design",
+    ],
+  },
+  {
+    icon: ShoppingCart,
+    title: "Ecommerce Solutions",
+    description:
+      "Complete online store systems with product management, payment integration, and conversion optimization.",
+    features: [
+      "Shop setup",
+      "Payment gateway",
+      "Product catalog",
+      "Order management",
+    ],
+  },
+  {
+    icon: Sparkles,
+    title: "Branding",
+    description:
+      "Modern brand identity systems that help your business stand out and build trust instantly.",
+    features: [
+      "Logo design",
+      "Brand identity",
+      "Color systems",
+      "Social branding kit",
+    ],
+  },
+  {
+    icon: BarChart3,
+    title: "Growth & SEO",
+    description:
+      "Organic growth systems that help your business get discovered on Google and local search.",
+    features: [
+      "Local SEO",
+      "Keyword optimization",
+      "Google Business setup",
+      "Content strategy",
+    ],
+  },
+  {
+    icon: Zap,
+    title: "Automation Systems",
+    description:
+      "Automate your business workflows using WhatsApp, CRM systems, and smart integrations.",
+    features: [
+      "WhatsApp automation",
+      "CRM setup",
+      "Lead tracking",
+      "Workflow automation",
+    ],
+  },
+  {
+    icon: Megaphone,
+    title: "Marketing Systems",
+    description:
+      "Performance-driven marketing funnels designed to generate consistent leads and sales.",
+    features: [
+      "Lead funnels",
+      "Ad strategy",
+      "Campaign setup",
+      "Conversion optimization",
+    ],
+  },
+];
 
 export default function Services() {
   return (
     <div className="w-full">
 
-      {/* ================= HERO SECTION ================= */}
-      <section className="max-w-5xl mx-auto px-4 py-16 text-center">
+      {/* =====================================================
+          HERO SECTION
+      ===================================================== */}
 
-        <h1 className="text-3xl md:text-4xl font-bold">
-          Our Digital Execution Services
-        </h1>
+      <section className="section">
+        <div className="container-custom text-center">
 
-        <p className="mt-4 text-gray-500 dark:text-gray-400">
-          We don’t sell services. We build systems that help businesses grow.
-        </p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="heading-xl mb-6"
+          >
+            Our Digital Growth Services
+          </motion.h1>
 
-      </section>
-
-      {/* ================= SERVICES GRID ================= */}
-      <section className="max-w-6xl mx-auto px-4 pb-16 grid md:grid-cols-3 gap-6">
-
-        <ServiceCard
-          title="Business Websites"
-          description="Fast, responsive, conversion-focused websites designed to generate leads and calls."
-          icon="🌐"
-        />
-
-        <ServiceCard
-          title="Ecommerce Systems"
-          description="Online stores optimized for sales, payment flow, and customer experience."
-          icon="🛒"
-        />
-
-        <ServiceCard
-          title="Business Automation"
-          description="Automate repetitive tasks, inquiries, and workflows to save time and scale faster."
-          icon="⚙️"
-        />
-
-        <ServiceCard
-          title="Branding & Identity"
-          description="Create strong brand presence with logos, visuals, and digital identity systems."
-          icon="🎯"
-        />
-
-        <ServiceCard
-          title="SEO & Growth Systems"
-          description="Improve search visibility and organic traffic with structured SEO systems."
-          icon="📈"
-        />
-
-        <ServiceCard
-          title="Marketing Setup"
-          description="Set up digital marketing funnels that help attract and convert customers."
-          icon="📣"
-        />
-
-      </section>
-
-      {/* ================= PROCESS SECTION ================= */}
-      <section className="max-w-4xl mx-auto px-4 py-12 text-center">
-
-        <h2 className="text-2xl font-semibold mb-6">
-          How We Work
-        </h2>
-
-        <div className="space-y-3 text-gray-500 dark:text-gray-400 text-sm">
-
-          <p>1. You contact us on WhatsApp</p>
-          <p>2. We understand your business needs</p>
-          <p>3. We design your system structure</p>
-          <p>4. We build and deploy your solution</p>
-          <p>5. You start getting leads and growth systems</p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="body-lg max-w-3xl mx-auto"
+          >
+            We don’t just “build websites”. We design complete digital systems
+            that help businesses attract, convert, and retain customers.
+          </motion.p>
 
         </div>
-
       </section>
 
-      {/* ================= FINAL CTA ================= */}
-      <section className="max-w-5xl mx-auto px-4 py-16 text-center border-t border-gray-200 dark:border-gray-800">
+      {/* =====================================================
+          SERVICES GRID
+      ===================================================== */}
 
-        <h2 className="text-2xl font-bold">
-          Ready to Build Your System?
-        </h2>
+      <section className="section pt-0">
+        <div className="container-custom">
 
-        <p className="text-gray-500 dark:text-gray-400 mt-2">
-          Talk directly with our execution team on WhatsApp.
-        </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <a
-          href="https://wa.me/910000000000"
-          target="_blank"
-          className="inline-block mt-6 bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-medium"
-        >
-          Start on WhatsApp
-        </a>
+            {services.map((service, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05 }}
+                viewport={{ once: true }}
+                className="glass-card p-6 hover:scale-[1.02] transition-all"
+              >
 
+                <service.icon className="text-violet-500 mb-4" />
+
+                <h3 className="heading-md mb-2">
+                  {service.title}
+                </h3>
+
+                <p className="body-md mb-4 text-slate-300">
+                  {service.description}
+                </p>
+
+                <ul className="space-y-2 mb-5">
+                  {service.features.map((f, idx) => (
+                    <li
+                      key={idx}
+                      className="text-sm text-slate-400"
+                    >
+                      • {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  to="/contact"
+                  className="text-violet-400 flex items-center gap-2 hover:gap-3 transition-all"
+                >
+                  Get This Service
+                  <ArrowRight size={16} />
+                </Link>
+
+              </motion.div>
+            ))}
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* =====================================================
+          CTA SECTION
+      ===================================================== */}
+
+      <section className="section">
+        <div className="container-custom">
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="glass-card p-10 text-center"
+          >
+
+            <h2 className="heading-xl mb-4">
+              Not Sure What You Need?
+            </h2>
+
+            <p className="body-lg mb-6">
+              Book a free consultation and we’ll suggest the right digital
+              system for your business.
+            </p>
+
+            <a
+              href="https://wa.me/919999999999"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary"
+            >
+              Book Free Growth Consultation
+            </a>
+
+          </motion.div>
+
+        </div>
       </section>
 
     </div>
