@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 /* PAGES */
 import Home from "./pages/Home";
@@ -15,43 +16,90 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 /**
- * TEAM PIKA GROWTH - APP ENGINE
- * ------------------------------
- * This file controls:
- * - routing system
- * - global layout structure
- * - page transitions behavior
+ * TEAM PIKA GROWTH - APP ENGINE (V2)
+ * -----------------------------------
+ * Upgrades:
+ * - Page transition animations
+ * - Better motion architecture
+ * - SaaS-level UX feel
  */
 
 export default function App() {
   const location = useLocation();
 
-  /* Auto scroll to top on route change (important UX behavior) */
+  /* Smooth scroll reset on route change */
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }, [location.pathname]);
 
-  return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-[#0b0b12] text-black dark:text-white">
+  /* Page animation variants */
+  const pageVariants = {
+    initial: {
+      opacity: 0,
+      y: 15,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: -10,
+      transition: {
+        duration: 0.25,
+      },
+    },
+  };
 
-      {/* GLOBAL NAVBAR */}
+  return (
+    <div
+      className="
+      min-h-screen
+      flex
+      flex-col
+      bg-white
+      dark:bg-[#0b0b12]
+      text-black
+      dark:text-white
+      transition-colors
+      duration-300
+    "
+    >
+      {/* NAVBAR */}
       <Navbar />
 
-      {/* PAGE CONTENT AREA */}
+      {/* PAGE CONTENT */}
       <main className="flex-1">
-        <Routes>
-          <Route path="/" element={<Home />} />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.pathname}
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
+            <Routes location={location}>
+              <Route path="/" element={<Home />} />
 
-          <Route path="/services" element={<Services />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/industries" element={<Industries />} />
-          <Route path="/growth-partner" element={<GrowthPartner />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+              <Route path="/services" element={<Services />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/industries" element={<Industries />} />
+              <Route path="/growth-partner" element={<GrowthPartner />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </motion.div>
+        </AnimatePresence>
       </main>
 
-      {/* GLOBAL FOOTER */}
+      {/* FOOTER */}
       <Footer />
     </div>
   );
