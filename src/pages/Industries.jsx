@@ -1,111 +1,172 @@
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  UtensilsCrossed,
+  Building2,
+  HeartPulse,
+  Dumbbell,
+  ShoppingBag,
+  Rocket,
+  Camera,
+  Briefcase,
+  Store,
+} from "lucide-react";
 
 /**
- * TEAM PIKA GROWTH - INDUSTRIES PAGE
- * ----------------------------------
- * Purpose:
- * - help users self-identify relevance
- * - increase WhatsApp conversion
- * - segment trust by business type
+ * TEAM PIKA GROWTH - INDUSTRIES PAGE V2
+ * -------------------------------------
+ * Focus:
+ * - Problem-based positioning
+ * - Trust for local businesses
+ * - Clear relevance mapping
  */
 
-export default function Industries() {
-  const industries = [
-    {
-      name: "Restaurants & Cafes",
-      description:
-        "Menu systems, booking flows, WhatsApp orders, and local discovery websites."
-    },
-    {
-      name: "Real Estate",
-      description:
-        "Property listing systems, lead capture funnels, and inquiry management setups."
-    },
-    {
-      name: "Clinics & Healthcare",
-      description:
-        "Appointment systems, patient inquiry flows, and digital presence optimization."
-    },
-    {
-      name: "Gyms & Fitness Studios",
-      description:
-        "Membership inquiry systems, class booking flows, and lead generation websites."
-    },
-    {
-      name: "Startups",
-      description:
-        "MVP websites, landing pages, and scalable digital infrastructure systems."
-    },
-    {
-      name: "Creators & Coaches",
-      description:
-        "Personal brand websites, booking funnels, and audience conversion systems."
-    },
-    {
-      name: "Local Shops",
-      description:
-        "Simple business websites to generate calls, inquiries, and local visibility."
-    }
-  ];
+const industries = [
+  {
+    icon: UtensilsCrossed,
+    title: "Restaurants & Cafes",
+    desc: "Online ordering systems, menu websites, Google visibility, and WhatsApp ordering integration.",
+  },
+  {
+    icon: Building2,
+    title: "Real Estate",
+    desc: "Property listing websites, lead capture systems, and automated inquiry handling.",
+  },
+  {
+    icon: HeartPulse,
+    title: "Clinics & Healthcare",
+    desc: "Appointment booking systems, patient inquiry automation, and trust-building websites.",
+  },
+  {
+    icon: Dumbbell,
+    title: "Gyms & Fitness",
+    desc: "Membership websites, trial booking funnels, and social media growth systems.",
+  },
+  {
+    icon: ShoppingBag,
+    title: "Retail & Shops",
+    desc: "Digital storefronts, product catalogs, and local delivery integration.",
+  },
+  {
+    icon: Rocket,
+    title: "Startups",
+    desc: "MVP websites, pitch landing pages, and scalable digital systems.",
+  },
+  {
+    icon: Camera,
+    title: "Creators",
+    desc: "Personal brand websites, portfolio systems, and audience conversion funnels.",
+  },
+  {
+    icon: Briefcase,
+    title: "Coaches & Consultants",
+    desc: "Lead generation funnels, booking systems, and authority-building platforms.",
+  },
+  {
+    icon: Store,
+    title: "Local Businesses",
+    desc: "Complete digital transformation including website, SEO, and automation systems.",
+  },
+];
 
+export default function Industries() {
   return (
     <div className="w-full">
 
-      {/* ================= HERO ================= */}
-      <section className="max-w-5xl mx-auto px-4 py-16 text-center">
+      {/* =====================================================
+          HERO SECTION
+      ===================================================== */}
 
-        <h1 className="text-3xl md:text-4xl font-bold">
-          Built for Real Businesses Across Industries
-        </h1>
+      <section className="section">
+        <div className="container-custom text-center">
 
-        <p className="mt-4 text-gray-500 dark:text-gray-400">
-          If your business needs more leads, more calls, or better systems —
-          we’ve built solutions for your category.
-        </p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="heading-xl mb-6"
+          >
+            Industries We Help Grow
+          </motion.h1>
 
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ delay: 0.1 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="body-lg max-w-3xl mx-auto"
+          >
+            We don’t just build websites — we build industry-specific growth
+            systems designed for real-world business problems.
+          </motion.p>
+
+        </div>
       </section>
 
-      {/* ================= INDUSTRY GRID ================= */}
-      <section className="max-w-6xl mx-auto px-4 pb-16 grid md:grid-cols-3 gap-6">
+      {/* =====================================================
+          INDUSTRY GRID
+      ===================================================== */}
 
-        {industries.map((item, index) => (
-          <div
-            key={index}
-            className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 hover:shadow-lg transition"
-          >
+      <section className="section pt-0">
+        <div className="container-custom">
 
-            <h3 className="text-lg font-semibold">
-              {item.name}
-            </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-3 leading-relaxed">
-              {item.description}
-            </p>
+            {industries.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05 }}
+                viewport={{ once: true }}
+                className="glass-card p-6 hover:scale-[1.02] transition-all"
+              >
+
+                <item.icon className="text-violet-500 mb-4" />
+
+                <h3 className="heading-md mb-2">
+                  {item.title}
+                </h3>
+
+                <p className="text-slate-400 text-sm">
+                  {item.desc}
+                </p>
+
+              </motion.div>
+            ))}
 
           </div>
-        ))}
 
+        </div>
       </section>
 
-      {/* ================= CTA ================= */}
-      <section className="max-w-4xl mx-auto px-4 py-16 text-center border-t border-gray-200 dark:border-gray-800">
+      {/* =====================================================
+          CTA SECTION
+      ===================================================== */}
 
-        <h2 className="text-2xl font-bold">
-          Not Sure If It Fits Your Business?
-        </h2>
+      <section className="section">
+        <div className="container-custom">
 
-        <p className="text-gray-500 dark:text-gray-400 mt-2">
-          Talk to us directly on WhatsApp — we’ll guide you.
-        </p>
+          <div className="glass-card p-10 text-center">
 
-        <a
-          href="https://wa.me/910000000000"
-          target="_blank"
-          className="inline-block mt-6 bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-medium"
-        >
-          Ask on WhatsApp
-        </a>
+            <h2 className="heading-xl mb-4">
+              Your Industry Not Listed?
+            </h2>
 
+            <p className="body-lg mb-6">
+              We build custom systems for any business that wants to grow
+              digitally.
+            </p>
+
+            <a
+              href="https://wa.me/919999999999"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary"
+            >
+              Book Free Consultation
+            </a>
+
+          </div>
+
+        </div>
       </section>
 
     </div>
