@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-<<<<<<< HEAD
+ HEAD
 import team from "../data/team";
 
 export default function About() {
@@ -194,7 +194,6 @@ export default function About() {
     </div>
   );
 }
-=======
 
 /**
  * TEAM PIKA GROWTH - ABOUT PAGE V2

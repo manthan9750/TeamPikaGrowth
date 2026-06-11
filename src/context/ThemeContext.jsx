@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React, { createContext, useEffect, useState, useCallback, useMemo } from "react";
 
 /**
@@ -89,7 +89,7 @@ export function ThemeProvider({ children }) {
       localStorage.setItem("pika-theme", targetTheme);
     } catch (e) {
       console.error("[THEME STORAGE FAULT] Failed updating runtime state layout choice:", e);
-=======
+
 import { createContext, useEffect, useState } from "react";
 
 /**
@@ -117,12 +117,10 @@ export function ThemeProvider({ children }) {
       applyTheme(savedTheme);
     } else {
       applyTheme("dark"); // default SaaS dark mode
->>>>>>> 70001eb5e1d931bdd5b25aa6f666f944b1a1ec91
     }
   }, []);
 
   /**
-<<<<<<< HEAD
    * DEPENDENCY OPTIMIZATION MATRIX
    * Saves rendering cycles by preventing child element cascades from updating randomly
    */
@@ -138,7 +136,7 @@ export function ThemeProvider({ children }) {
     </ThemeContext.Provider>
   );
 }
-=======
+
    * Apply theme to document root
    */
   const applyTheme = (mode) => {
@@ -174,4 +172,3 @@ export function ThemeProvider({ children }) {
     </ThemeContext.Provider>
   );
 }
->>>>>>> 70001eb5e1d931bdd5b25aa6f666f944b1a1ec91
