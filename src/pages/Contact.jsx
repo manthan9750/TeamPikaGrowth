@@ -52,7 +52,7 @@ export default function Contact() {
           </p>
 
           <a
-            href="https://wa.me/910000000000"
+            href="https://wa.me/919769710678"
             target="_blank"
             className="inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium"
           >
@@ -93,7 +93,7 @@ export default function Contact() {
           </p>
 
           <a
-            href="tel:+919100000000"
+            href="tel:+919769710678"
             className="inline-block px-6 py-3 border rounded-lg text-sm hover:bg-gray-100 dark:hover:bg-gray-800"
           >
             Call Now
@@ -115,7 +115,7 @@ export default function Contact() {
         </p>
 
         <a
-          href="https://wa.me/910000000000"
+          href="https://wa.me/919769710678"
           target="_blank"
           className="inline-block mt-6 bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-medium"
         >
