@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { createContext, useEffect, useState, useCallback, useMemo } from "react";
 
 /**
@@ -88,10 +89,40 @@ export function ThemeProvider({ children }) {
       localStorage.setItem("pika-theme", targetTheme);
     } catch (e) {
       console.error("[THEME STORAGE FAULT] Failed updating runtime state layout choice:", e);
+=======
+import { createContext, useEffect, useState } from "react";
+
+/**
+ * TEAM PIKA GROWTH - THEME SYSTEM
+ * --------------------------------
+ * Purpose:
+ * - global dark/light mode control
+ * - persistent UI state across pages
+ * - SaaS-grade user experience consistency
+ */
+
+export const ThemeContext = createContext();
+
+export function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState("dark");
+
+  /**
+   * Load saved theme from localStorage (persistent UX)
+   */
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("pika-theme");
+
+    if (savedTheme) {
+      setTheme(savedTheme);
+      applyTheme(savedTheme);
+    } else {
+      applyTheme("dark"); // default SaaS dark mode
+>>>>>>> 70001eb5e1d931bdd5b25aa6f666f944b1a1ec91
     }
   }, []);
 
   /**
+<<<<<<< HEAD
    * DEPENDENCY OPTIMIZATION MATRIX
    * Saves rendering cycles by preventing child element cascades from updating randomly
    */
@@ -107,3 +138,40 @@ export function ThemeProvider({ children }) {
     </ThemeContext.Provider>
   );
 }
+=======
+   * Apply theme to document root
+   */
+  const applyTheme = (mode) => {
+    const root = document.documentElement;
+
+    if (mode === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+  };
+
+  /**
+   * Toggle theme (used in navbar or future settings panel)
+   */
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+
+    setTheme(newTheme);
+    localStorage.setItem("pika-theme", newTheme);
+    applyTheme(newTheme);
+  };
+
+  return (
+    <ThemeContext.Provider
+      value={{
+        theme,
+        toggleTheme,
+        setTheme
+      }}
+    >
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+>>>>>>> 70001eb5e1d931bdd5b25aa6f666f944b1a1ec91

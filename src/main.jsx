@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
@@ -223,3 +224,32 @@ const initApplicationInstance = () => {
 
 // Dispatch the hydration call pipeline sequence onto the active layout thread
 initApplicationInstance();
+=======
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
+
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "./context/ThemeContext";
+
+/**
+ * TEAM PIKA GROWTH - APPLICATION BOOTSTRAP
+ * ----------------------------------------
+ * This file initializes the entire React system:
+ * - Mounts root app
+ * - Enables routing
+ * - Enables theme system (dark/light)
+ * - Loads global CSS system
+ */
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <ThemeProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ThemeProvider>
+  </React.StrictMode>
+);
+>>>>>>> 70001eb5e1d931bdd5b25aa6f666f944b1a1ec91

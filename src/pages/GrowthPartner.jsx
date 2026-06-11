@@ -174,7 +174,11 @@ export default function GrowthPartner() {
             </p>
 
             <a
+<<<<<<< HEAD
               href="https://wa.me/919999999999"
+=======
+              href="https://wa.me/919769710678"
+>>>>>>> 70001eb5e1d931bdd5b25aa6f666f944b1a1ec91
               target="_blank"
               rel="noreferrer"
               className="btn-primary"
