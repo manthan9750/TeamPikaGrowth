@@ -156,7 +156,7 @@ export default function Industries() {
             </p>
 
             <a
-              href="https://wa.me/919999999999"
+              href="https://wa.me/919769710678"
               target="_blank"
               rel="noreferrer"
               className="btn-primary"
