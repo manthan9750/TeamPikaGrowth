@@ -7,13 +7,13 @@
   "author": "Pilvilkar Group",
   "license": "MIT",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint . --ext js,jsx",
-    "lint:fix": "eslint . --ext js,jsx --fix",
-    "format": "prettier --write ."
-  },
+  "dev": "vite",
+  "build": "npm install --legacy-peer-deps && vite build",
+  "preview": "vite preview",
+  "lint": "eslint . --ext js,jsx",
+  "lint:fix": "eslint . --ext js,jsx --fix",
+  "format": "prettier --write ."
+},
   "dependencies": {
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.400.0",
