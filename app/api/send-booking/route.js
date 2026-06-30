@@ -13,7 +13,7 @@ export async function POST(request) {
     // Send the email
     const data = await resend.emails.send({
       from: 'Team Pika Growth <onboarding@resend.dev>', // Keep this as resend.dev until you verify a custom domain later
-      to: 'manthanpilvilkar4444@gmail.com', // Your receiving email
+      to: 'pikagrowth@gmail.com', // Your receiving email
       subject: `New Consulting Booking: ${name} from ${company || 'Independent'}`,
       html: `
         <div style="font-family: sans-serif; padding: 20px; color: #333;">
