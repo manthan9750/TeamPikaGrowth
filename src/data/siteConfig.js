@@ -6,7 +6,7 @@ export const siteConfig = {
   tagline: "One Stop Digital Growth Solutions",
   description: "Team Pika Growth helps Indian businesses build a strong online presence with professional websites, branding, SEO, digital marketing, and AI automation — all from one team, in Panvel and Navi Mumbai.",
   url: baseUrl,
-  logo: `${baseUrl}/public/logo.png`,
+  logo: `${baseUrl}/public/assets/images/logo.png`,
   contact: {
     email: "hello@pikag.qzz.io",
     phone: "+91-9769710678",
