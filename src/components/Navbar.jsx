@@ -23,7 +23,7 @@ export default function Navbar() {
         
         <Link href="/" className="flex items-center gap-3 group">
           <img 
-            src={siteConfig.logo}
+            src="/logo.png"
             alt={siteConfig.name} 
             className="h-9 w-auto object-contain group-hover:scale-105 transition-transform"
           />
