@@ -1,0 +1,33 @@
+# Team Pika Growth
+
+## Overview
+Team Pika Growth is a Panvel-based digital growth partner for businesses. We specialize in building fast websites, executing targeted digital marketing campaigns, dominating local SEO, and automating business workflows. We replace fragmented agency models by offering an all-in-one digital ecosystem.
+
+## Core Services
+
+### 1. Digital Presence & Web
+* Custom Website Development (React/Next.js)
+* Landing Pages & Sales Funnels
+* Full Brand Identity & Logo Design
+* Mobile-First Optimization & Speed Tuning
+
+### 2. Digital Marketing & SEO
+* Local & National SEO Strategy
+* Google Ads & Meta Ads Management
+* Google Business Profile Optimization
+* Content Marketing & Social Media Strategy
+
+### 3. Business Growth & Automation
+* AI Chatbots & Customer Support Automations
+* Lead Generation & Qualification Pipelines
+* CRM Setup & WhatsApp API Integration
+* Automated Appointment Booking Systems
+
+## Contact Information
+* **Website:** https://pikag.qzz.io
+* **Phone/WhatsApp:** +91 9769710678
+* **Email:** hello@pikag.qzz.io
+* **Address:** Shop No 4, Shaneshwar Apartment, Tapal Naka, Panvel, Maharashtra, India.
+
+## Why Choose Us?
+Unlike traditional agencies that use bloated templates or freelancers who lack full-stack capabilities, we build engineered systems focused on measurable business outcomes. We offer direct developer access, transparent pricing, and long-term infrastructure support.
