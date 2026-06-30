@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, ArrowRight, Menu, X } from "lucide-react";
 import { navLinks, globalCTAs } from "@/src/data/nav";
 import { siteConfig } from "@/src/data/siteConfig";
+import Image from "next/image";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,11 +23,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         
         <Link href="/" className="flex items-center gap-3 group">
-          <img 
-            src={siteConfig.logo}
-            alt={siteConfig.name} 
-            className="h-9 w-auto object-contain group-hover:scale-105 transition-transform"
-          />
+<Image
+  src={siteConfig.logo}
+  alt={siteConfig.name}
+  width={160}
+  height={40}
+  priority
+  className="h-9 w-auto object-contain group-hover:scale-105 transition-transform"
+/>
           <div className="flex flex-col">
             <span className="font-mono text-xs font-bold tracking-widest uppercase text-ink dark:text-white">
               {siteConfig.shortName}
@@ -69,7 +73,7 @@ export default function Navbar() {
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-ink dark:bg-white text-white dark:text-ink text-xs font-bold transition-all hover:opacity-90 active:scale-[0.98] shadow-sm group"
           >
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Strategy Call</span>
+            <span>Book Free Strategy Call</span>
             <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </div>
