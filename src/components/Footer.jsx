@@ -9,7 +9,6 @@ import {
 import { siteConfig } from "@/src/data/siteConfig";
 import { navLinks, globalCTAs } from "@/src/data/nav";
 import { servicePillars } from "@/src/data/services";
-import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -34,7 +33,7 @@ export default function Footer() {
         {/* BRAND COLUMN */}
         <div className="md:col-span-4 space-y-4">
           <Link href="/" className="flex items-center gap-2 group w-fit">
-            <Image 
+            <img 
               src={siteConfig.logo}
               alt={siteConfig.name} 
               className="h-7 w-auto object-contain group-hover:scale-105 transition-transform"
