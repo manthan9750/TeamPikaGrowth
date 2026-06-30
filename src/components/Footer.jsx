@@ -34,7 +34,7 @@ export default function Footer() {
         <div className="md:col-span-4 space-y-4">
           <Link href="/" className="flex items-center gap-2 group w-fit">
             <img 
-              src={siteConfig.logo}
+              src="/logo.png"
               alt={siteConfig.name} 
               className="h-7 w-auto object-contain group-hover:scale-105 transition-transform"
             />
