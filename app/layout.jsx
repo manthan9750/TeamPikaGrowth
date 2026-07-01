@@ -1,13 +1,17 @@
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import { siteConfig } from "@/src/data/siteConfig";
 import { ThemeProvider } from "@/src/context/ThemeContext";
 import Navbar from "@/src/components/Navbar";
 import Footer from "@/src/components/Footer";
-import FloatingCTA from "@/src/components/FloatingCTA";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+// Initialized the new premium agency font
+const jakarta = Plus_Jakarta_Sans({ 
+  subsets: ["latin"], 
+  variable: "--font-sans",
+  display: "swap"
+});
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -76,19 +80,19 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={jakarta.variable} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
+      {/* Applied the new font globally with antialiased for crisper rendering */}
+      <body className={`${jakarta.className} font-sans min-h-screen flex flex-col antialiased`}>
         <ThemeProvider>
           <Navbar />
           <main className="flex-grow">{children}</main>
           <Footer />
-          <FloatingCTA />
         </ThemeProvider>
 
         {/* Google Analytics */}

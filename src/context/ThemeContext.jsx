@@ -2,29 +2,28 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 
-const ThemeContext = createContext();
+// 1. Create the context
+const ThemeContext = createContext(undefined);
 
+// 2. Create the Provider component
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("dark"); // Defaults to dark mode per audit
+  // Set default theme to 'light'
+  const [theme, setTheme] = useState("light");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Only run on client after mount to prevent hydration mismatch
     setMounted(true);
-    const storedTheme = localStorage.getItem("theme");
-    
-    if (storedTheme) {
-      setTheme(storedTheme);
-    } else {
-      // Respect system preference if available, otherwise default to dark
-      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setTheme(systemPrefersDark ? "dark" : "light");
+    // Check if user has a previously saved theme in their browser
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
     }
   }, []);
 
   useEffect(() => {
     if (!mounted) return;
 
+    // Apply the dark class to the HTML root element
     const root = document.documentElement;
     if (theme === "dark") {
       root.classList.add("dark");
@@ -32,29 +31,22 @@ export function ThemeProvider({ children }) {
       root.classList.remove("dark");
     }
     
+    // Save preference
     localStorage.setItem("theme", theme);
   }, [theme, mounted]);
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  };
-
-  // Prevent hydration mismatch by returning hidden content until mounted
-  if (!mounted) {
-    return <div style={{ visibility: "hidden" }}>{children}</div>;
-  }
-
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );
 }
 
-export const useTheme = () => {
+// 3. Create the custom Hook
+export function useTheme() {
   const context = useContext(ThemeContext);
   if (context === undefined) {
     throw new Error("useTheme must be used within a ThemeProvider");
   }
   return context;
-};
+}

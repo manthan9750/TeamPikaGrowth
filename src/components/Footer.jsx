@@ -38,7 +38,8 @@ export default function Footer() {
               alt={siteConfig.name} 
               className="h-7 w-auto object-contain group-hover:scale-105 transition-transform"
             />
-            <span className="font-mono text-xs font-black tracking-widest uppercase text-ink dark:text-white mt-1">
+            {/* REMOVED font-mono, ADDED font-extrabold and text-sm for agency look */}
+            <span className="font-extrabold text-sm tracking-widest uppercase text-ink dark:text-white mt-1">
               {siteConfig.name}
             </span>
           </Link>
@@ -49,7 +50,8 @@ export default function Footer() {
 
         {/* NAV COLUMN */}
         <div className="md:col-span-2 space-y-3.5">
-          <h3 className="font-mono text-[10px] font-black tracking-widest uppercase text-content-muted">
+          {/* REMOVED font-mono, updated sizing */}
+          <h3 className="text-xs font-bold tracking-widest uppercase text-content-muted">
             Navigation
           </h3>
           <ul className="space-y-2 text-sm font-medium text-content-secondary">
@@ -65,7 +67,8 @@ export default function Footer() {
 
         {/* SERVICES COLUMN */}
         <div className="md:col-span-3 space-y-3.5">
-          <h3 className="font-mono text-[10px] font-black tracking-widest uppercase text-content-muted">
+          {/* REMOVED font-mono, updated sizing */}
+          <h3 className="text-xs font-bold tracking-widest uppercase text-content-muted">
             Core Solutions
           </h3>
           <ul className="space-y-2 text-sm text-content-secondary">
@@ -81,7 +84,8 @@ export default function Footer() {
         {/* CTA COLUMN */}
         <div className="md:col-span-3 bg-bg-secondary border border-border rounded-xl p-5 flex flex-col justify-between group/cta shadow-sm">
           <div>
-            <h3 className="font-mono text-[10px] font-black tracking-widest uppercase text-ink dark:text-white">
+            {/* REMOVED font-mono, updated sizing */}
+            <h3 className="text-xs font-bold tracking-widest uppercase text-ink dark:text-white">
               Let’s Work Together
             </h3>
             <p className="text-xs text-content-secondary mt-1 leading-normal">
@@ -91,7 +95,8 @@ export default function Footer() {
 
           <Link
             href={globalCTAs.primary.path}
-            className="mt-4 flex items-center justify-between text-xs font-bold font-mono tracking-wide uppercase bg-ink dark:bg-white text-white dark:text-ink px-3.5 py-2.5 rounded-lg hover:opacity-90 transition-opacity shadow-sm"
+            // REMOVED font-mono
+            className="mt-4 flex items-center justify-between text-xs font-bold tracking-wide uppercase bg-ink dark:bg-white text-white dark:text-ink px-3.5 py-2.5 rounded-lg hover:opacity-90 transition-opacity shadow-sm"
           >
             <span>Book Free Call</span>
             <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5" />
@@ -105,7 +110,8 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row gap-4 items-center justify-between">
           
           {/* Copyright Strings */}
-          <div className="font-mono text-[10px] font-bold text-content-muted uppercase tracking-widest text-center sm:text-left order-2 sm:order-1">
+          {/* REMOVED font-mono */}
+          <div className="text-[10px] font-bold text-content-muted uppercase tracking-widest text-center sm:text-left order-2 sm:order-1">
             <span>&copy; {currentYear} {siteConfig.name}. All rights reserved.</span>
           </div>
 

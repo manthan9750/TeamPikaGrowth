@@ -9,11 +9,11 @@ import {
   Briefcase,
   ArrowRight,
   Workflow,
-  ArrowUpRight
+  ArrowUpRight,
+  Sparkles
 } from "lucide-react";
 import PageWrapper from "@/src/components/PageWrapper";
 import ScrollReveal from "@/src/components/ScrollReveal";
-import CTAButton from "@/src/components/CTAButton";
 import { globalCTAs } from "@/src/data/nav";
 import Link from "next/link";
 
@@ -26,42 +26,42 @@ const industries = [
   {
     icon: Building2,
     title: "Real Estate Platforms",
-    desc: "Automated lead capture systems and property listing platforms to connect agents with qualified buyers.",
+    desc: "Automated lead capture systems and property listing platforms to connect local agents with qualified, high-intent buyers.",
   },
   {
     icon: Stethoscope,
     title: "Healthcare Networks",
-    desc: "Secure patient booking systems and local search optimization to build trust and increase clinic visits.",
+    desc: "Secure patient booking systems and local search optimization to build trust, dominate local maps, and increase clinic visits.",
   },
   {
     icon: Utensils,
     title: "Hospitality & Cuisine",
-    desc: "Direct booking and ordering systems to help restaurants and hotels bypass third-party commission fees.",
+    desc: "Direct booking and ordering systems engineered to help local restaurants and hotels bypass expensive third-party commission fees.",
   },
   {
     icon: GraduationCap,
     title: "Educational Institutes",
-    desc: "Student acquisition campaigns and digital learning platforms to scale enrollment for courses and schools.",
+    desc: "Student acquisition campaigns and seamless digital learning platforms designed to scale enrollment for courses and academies.",
   },
   {
     icon: Dumbbell,
     title: "Fitness & Club Groups",
-    desc: "Membership subscription pipelines and local advertising to keep your gym or club growing consistently.",
+    desc: "Membership subscription pipelines and targeted local advertising to keep your gym, studio, or club growing consistently.",
   },
   {
     icon: Cpu,
     title: "SaaS & Technical Startups",
-    desc: "High-performance websites and user acquisition funnels designed to scale active software subscriptions.",
+    desc: "High-performance marketing websites and user acquisition funnels designed to rapidly scale active software subscriptions.",
   },
   {
     icon: ShoppingBag,
     title: "Digital E-commerce Brands",
-    desc: "Optimized online stores and checkout flows designed to reduce abandonment and maximize direct sales.",
+    desc: "Optimized online stores and frictionless checkout flows built to reduce cart abandonment and maximize direct sales.",
   },
   {
     icon: Briefcase,
     title: "Professional Consultancies",
-    desc: "Authority-building websites and lead qualification systems for legal, management, and consulting firms.",
+    desc: "Authority-building websites and automated lead qualification systems for legal, management, and financial consulting firms.",
   }
 ];
 
@@ -75,17 +75,17 @@ export default function Industries() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_600px_400px_at_50%_0%,var(--color-primary-soft),transparent)] pointer-events-none" />
           
           <div className="space-y-4 relative z-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide bg-surface border border-border uppercase text-content-muted mx-auto shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold tracking-widest bg-surface border border-border uppercase text-content-muted mx-auto shadow-sm">
               <Workflow className="w-3.5 h-3.5 text-primary" />
-              Tailored Solutions
+              Industry-Specific Growth Frameworks
             </div>
 
             <h1 className="text-h1 text-ink dark:text-white leading-[1.1]">
-              Industries We Help Grow Online
+              Digital Growth Systems Engineered for <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-hover">Your Industry.</span>
             </h1>
 
             <p className="text-sm md:text-base text-content-secondary max-w-2xl mx-auto leading-relaxed pt-2">
-              While every industry is unique, the fundamentals of a strong digital presence remain the same. We adapt our web, SEO, and automation solutions to fit your specific market.
+              We don't believe in one-size-fits-all. We build custom websites, local SEO strategies, and automated lead generation funnels tailored to the exact mechanics of your specific market.
             </p>
           </div>
         </section>
@@ -97,7 +97,7 @@ export default function Industries() {
               const IconComponent = item.icon;
               return (
                 <ScrollReveal key={item.title}>
-                  <Link href={globalCTAs.primary.path} className="block h-full focus:outline-none">
+                  <Link href={globalCTAs.primary.path} className="block h-full focus:outline-none group/link">
                     <div className="group bg-surface border border-border rounded-2xl p-6 flex flex-col h-full shadow-sm hover:border-primary/50 hover:shadow-md transition-all duration-300">
                       
                       <div className="flex items-center justify-between mb-5">
@@ -128,22 +128,26 @@ export default function Industries() {
           <ScrollReveal>
             <div className="bg-surface border border-border rounded-3xl p-8 md:p-12 text-center relative overflow-hidden shadow-sm">
               <div className="max-w-2xl mx-auto relative z-10">
-                <span className="text-xs font-mono font-bold tracking-widest uppercase text-content-muted block mb-3">
+                <span className="text-xs font-bold tracking-widest uppercase text-content-muted block mb-3">
                   Cross-Vertical Experience
                 </span>
                 
                 <h2 className="text-h3 text-ink dark:text-white leading-tight">
-                  Don't see your industry listed?
+                  Don't see your exact industry listed?
                 </h2>
                 
                 <p className="mt-4 text-sm text-content-secondary leading-relaxed">
-                  We've built solutions for dozens of niches not listed here. Book a call and we'll let you know if we're the right fit to help your specific business grow.
+                  We have engineered lead generation and workflow automation systems for dozens of specialized niches. Book a free consultation to see how we can scale your specific business operations.
                 </p>
 
                 <div className="mt-8 flex justify-center">
-                  <CTAButton href={globalCTAs.primary.path} type="primary">
-                    Book Strategy Call <ArrowRight className="w-4 h-4 ml-2" />
-                  </CTAButton>
+                  <Link 
+                    href={globalCTAs.primary.path} 
+                    className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-6 py-3.5 rounded-xl bg-primary text-white text-sm font-bold shadow-md hover:bg-primary-hover transition-all active:scale-[0.98] group"
+                  >
+                    <Sparkles className="w-4 h-4" />
+                    Book Strategy Call <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
+                  </Link>
                 </div>
               </div>
             </div>

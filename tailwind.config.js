@@ -43,8 +43,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         h1: ['clamp(2.5rem, 5vw + 1rem, 4.5rem)', { lineHeight: '1.2', fontWeight: '800', letterSpacing: '-0.04em' }],
@@ -65,6 +64,16 @@ module.exports = {
         lg: "var(--shadow-lg)",
         xl: "var(--shadow-xl)",
       },
+      // --- ADDED ANIMATION FOR THE TRUST STRIP LOGOS ---
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' }, // Moves half the width to seamlessly loop
+        }
+      },
+      animation: {
+        marquee: 'marquee 25s linear infinite',
+      }
     },
   },
   plugins: [],
